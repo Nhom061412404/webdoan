@@ -1,0 +1,219 @@
+<div class="header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-2 col-sm-2">
+              <div class="logo">
+                <a href="/">
+                  <img src="images/logo.png" alt="MickeyShop">
+                </a>
+              </div>
+            </div>
+            <div class="col-md-10 col-sm-10">
+              <div class="header_top">
+                <div class="row">
+                  <div class="col-md-12">
+                    <ul class="usermenu">
+                      <!--
+                      <form>
+                        <li>
+                        <label for="username">Tài khoản</label>
+                        <input name="username" placeholder="Nhập tài khoản" id="username" />
+                        </li>
+                        <li>
+                        <label for="password">Mật khẩu</label>
+                        <input name="password" placeholder="Nhập password" id="password" />
+                        </li>
+                 
+                        <li>
+                        <a type="submit" href="accountInformation" class="log">
+                            Đăng nhập
+                          </a>
+                        </li>
+                        <li>
+                          <a href="register" class="reg">
+                            Đăng ký
+                          </a>
+                        </li>
+                      </form>
+                      -->
+                      <% if (session.username) { %>
+                        <form action="/logout" method="get">
+                          <a href="accountInformation">
+                          <li>
+                              <button type="button" onClick.href="accountInformation"> <%= session.username %> </button>
+                          </li>
+                          </a>
+                          <li>
+                              <!--<button><a href="logout">Đăng xuất</a></button>-->
+                              <button type="submit"> Đăng xuất </button>
+                          </li>
+                        </form>
+                      <% } else { %>
+                      <form action="/login" method="post">
+                          
+                          <li>
+                              <label>username:</label> <input type="text" name="username" placeholder="Nhập tài khoản" id="username"/>
+                          </li>
+                          <li>
+                              <label>Password:</label> <input type="password" name="password" placeholder="Nhập password" id="password" />
+                          </li>
+                          <li>
+                              <button type="submit"> Đăng nhập </button>
+                          </li>
+                          <li>
+                              <!--<button><a href="register">Đăng ký</a></button>-->
+                              <button type="submit" formmethod="get" formaction="register"> Đăng ký </button>
+                          </li>
+                      </form>
+                      <% } %>
+
+
+                      
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix">
+              </div>
+              <div class="header_bottom">
+                <ul class="option">
+                  <li id="search" class="search">
+                    <form method="post" action="search">
+                      <input class="search-submit" type="submit" value="">
+                      <input class="search-input" placeholder="Enter your search term..." type="text" value="" name="value">
+                    </form>
+                  </li>
+                  
+                  
+                  <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/cart" style="vertical-align: top;"><i class="material-icons">shopping_cart</i> 
+
+                      <span class="badge"> <%= session.cart ? session.cart.count : 0 ; %></span> </a></li>
+                    
+                  </ul>
+                </ul>
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">
+                      Toggle navigation
+                    </span>
+                    <span class="icon-bar">
+                    </span>
+                    <span class="icon-bar">
+                    </span>
+                    <span class="icon-bar">
+                    </span>
+                  </button>
+                </div>
+                <div class="navbar-collapse collapse">
+                                  <ul class="nav navbar-nav">
+                                    <li class="active dropdown">
+                                      <a href="/">
+                                        Trang chủ
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="productlist" class="dropdown-toggle" data-toggle="dropdown">
+                                        Nam
+                                      </a>
+                                      <div class="dropdown-menu">
+                                        <ul class="mega-menu-links">
+                                          <li>
+                                            <a href="/productlist?type=brief">
+                                              Quần lót Briefs
+                                            </a>
+                                          </li>
+                                          <li>
+                                            <a href="/productlist?type=trunk">
+                                              Quần lót Trunks
+                                            </a>
+                                          </li>
+                                          <li>
+                                            <a href="/productlist?type=boxer">
+                                              Quần lót Boxers
+                                            </a>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </li>
+
+
+                                    <li>
+                                      <a href="productlist">
+                                        Mới
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="productlist">
+                                        Đang giảm giá
+                                      </a>
+                                    </li>
+                                    <li class="dropdown">
+                                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        Hãng
+                                      </a>
+                                      <div class="dropdown-menu mega-menu">
+                                        <div class="row">
+                                          <div class="col-md-6 col-sm-6">
+                                            <ul class="mega-menu-links">
+                                              <li>
+                                                <a href="/productlist?brand=CK">
+                                                  Calvin Klein
+                                                </a>
+                                              </li>
+                                              <li>
+                                                <a href="/productlist?brand=DE">
+                                                  Diesel
+                                                </a>
+                                              </li>
+                                              <li>
+                                                <a href="/productlist?brand=CLEVER">
+                                                  Clever
+                                                </a>
+                                              </li>
+                                              <li>
+                                                <a href="/productlist?brand=EVA">
+                                                  Eva
+                                                </a>
+                                              </li>
+                                             
+                                            </ul>
+                                          </div>
+                                          <div class="col-md-6 col-sm-6">
+                                            <ul class="mega-menu-links">
+                                              <li>
+                                                <a href="/productlist?brand=MP">
+                                                  Male power
+                                                </a>
+                                              </li>
+                                              <li>
+                                                <a href="/productlist?brand=EXIST">
+                                                  2(X)iST
+                                                </a>
+                                              </li>
+                                              <li>
+                                                <a href="/productlist?brand=PUMP">
+                                                  Pump
+                                                </a>
+                                              </li>
+                                              
+                                            </ul>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </li>
+                                    
+                                    <li>
+                                      <a href="#contact">
+                                        Liên hệ
+                                      </a>
+                                    </li>
+                                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix">
+        </div>
+      </div>

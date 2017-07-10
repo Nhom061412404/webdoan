@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC>
+<html>
+  <head>
+      <% include ./partials/stylesheet-admin.ejs %>
+      
+  </head>
+
+  <body id="content">
+    <div class="w1000">
+
+      <% include ./partials/menu.ejs %> 
+
+      <table class="bordered">
+        <thead>
+          <tr>
+            <th colspan="8" style="color:black; text-transform:uppercase">Danh sách sản phẩm</th>
+            <script type="text/javascript">
+                    function themSP(){
+                      document.getElementById("form_themSP").hidden = "";
+                    }
+                  </script>
+            <th><input type="image" src="images/themmoi.png" name="nut-them" onClick = "themSP();"></th>
+          </tr>
+          <!--<tr>
+            <td colspan="9">
+              <form action="#" name="frmSearchProduct" method="get">
+                                        Nhập từ khóa:
+                          <input style="WIDTH: 400px" name="Key">
+                          <input class="button" type="submit" value="Tìm kiếm"> 
+              </form></td>
+          </tr>-->
+          <tr>
+              <th width="50">Mã</th>
+              <th width="100">Tên sản phẩm</th>
+              <th width="50">Loại </th>
+              <th width="90">Hãng sản xuất</th>
+              <th width="50">Giá </th>
+              <th width="70">Số lượng</th>
+              <th width="210">Mô tả</th>
+              <th width="140">Hình ảnh</th>
+              <th width="90">Sửa/Xóa</th>
+          </tr>
+        </thead>
+      </table>  
+
+      <!--form thêm sản phẩm -->
+      <div hidden="hidden" id="form_themSP">
+        <form action="/them_sp" method="post" enctype="multipart/form-data">
+          <p style="color:black;font-size:15px;">Nhập đủ thông tin vào form dưới đây để thêm sản phẩm</p>
+          <div class="STT"><input type="text" name="ma" placeholder="Nhập mã" style="width: 64; height:35"autofocus></div>
+          <div class="TEN"><input type="text" name="ten" placeholder="Nhập tên sản phẩm"style="width: 116; height:35"></div>
+          <div class="LOAI"><select name="loai" style="width: 64; height:35">
+            <option ><--Chọn loại sản phẩm--></option>
+            <option value ="brief">BRIEF</option>
+            <option value ="boxer">BOXER</option>
+            <option value ="trunks">TRUNKS</option>
+            <option value ="thongs">THONGS</option></select></div>
+          <div class="HANG"><select name="hang"style="width: 104; height:35">
+            <option ><--Chọn hãng sản xuất--></option>
+            <option value ="CK">Calvin Klein</option>
+            <option value ="DE">DIESEL</option>
+            <option value ="CLEVER">CLEVER</option>
+            <option value ="EVA">EVA</option>
+            <option value ="PUMP">PUMP</option>
+            <option value ="MP">Male Power</option>
+            <option value ="EXIST">2(X)IST</option></select></div>
+          <div class="GIA"><input type="text" name="gia" placeholder="Nhập giá"style="width: 63; height:35"></div>
+          <div class="SOLUONG"><input type="text" name="slg" placeholder="số lượng"style="width: 83; height:35"></div>
+          <div class="MOTA"><input type="text" name="mota" placeholder="Nhập mô tả"style="width: 233; height:35"></div>
+          <div class="HINHANH"><input type="file" name="file" ></div>
+          <div class="CONGCU"><button type="submit"style="float:right">Xong</button></div>
+          <br><br>
+        </form></div>
+      
+
+      <!--form tra cứu sản phẩm -->
+      <form action="/sanpham" method="get">
+        <div style="clear:both"></div>
+          <div id="list">
+            <ul class="ui-sortable">
+              <% sanphams.forEach( function(sanpham) {%>
+              <li>
+                <div class="STT"><%= sanpham.ma_sp %></div>
+                <div class="TEN"><%= sanpham.ten_sp %></div>
+                <div class="LOAI"><%= sanpham.loai_sp %></div>
+                <div class="HANG"><%= sanpham.hang_sp %></div>
+                <div class="GIA"><%= sanpham.gia_sp %></div>
+                <div class="SOLUONG"><%= sanpham.soluong_sp %></div>
+                <div class="MOTA"><%= sanpham.mota_sp %></div>
+                <div class="HINHANH"><img src="<%= sanpham.hinh_sp %>" width="70" height="70"></div>
+                <div class="CONGCU">
+                  <button type="button" name="nut-sua"  onclick="location.href='/edit_sp?id=<%= sanpham._id %>'" ><img class="icon" src="images/edit.gif" border="0"></button>
+                  <button type="button" name="nut-xoa"  onclick="location.href='/xoa_sp?id=<%= sanpham._id %>'" ><img class="icon" src="images/delete.gif" border="0"></button>
+                </div>
+              </li>
+              <% }) %>
+            </ul>
+       </div>
+      </form>
+      <!--form cập nhật sản phẩm -->
+      <div id="form_suaSP">
+        <form action="edit_sp" method="post"> <!-- bo sung script disable sau -->
+          <input type="hidden" name="id" value="<%= id %>">
+          <p style="color:black;font-size:15px;">Nhập lại thông tin cần chỉnh sửa theo form dưới đây để cập nhật sản phẩm</p>
+          <div class="STT"><input type="text" name="ma" value="<%= editma %>" placeholder="Mã" style="width: 64; height:35"autofocus></div>
+          <div class="TEN"><input type="text" name="ten" placeholder="Tên sản phẩm" value='<%= editten %>' style="width: 125; height:35"></div>
+          <div class="LOAI"><select name="loai" style="width: 70; height:35">
+            <option ><%= editloaisp %></option>
+            <option value ="brief">BRIEF</option>
+            <option value ="boxer">BOXER</option>
+            <option value ="trunks">TRUNKS</option>
+            <option value ="thongs">THONGS</option></select></div>
+          <div class="HANG"><select name="hang" style="width: 110; height:35">
+            <option ><%= edithangsp %></option>
+            <option value ="CK">Calvin Klein</option>
+            <option value ="DE">DIESEL</option>
+            <option value ="CLEVER">CLEVER</option>
+            <option value ="EVA">EVA</option>
+            <option value ="PUMP">PUMP</option>
+            <option value ="MP">Male Power</option>
+            <option value ="EXIST">2(X)IST</option></select></div>
+          <div class="GIA"><input type="text" name="gia" placeholder="Giá" value='<%= editgia %>' style="width: 70; height:35"></div>
+          <div class="SOLUONG"><input type="text" name="soluong" placeholder="số lượng" value='<%= editsoluong %>' style="width: 70; height:35"></div>
+          <div class="MOTA"><input type="text" name="mota" placeholder="Nhập mô tả" value='<%= editmota %>' style="width: 200; height:35"></textarea></div>
+          <div class="HINHANH"><input type="file" name="file" ></div> <!--gg-->
+          <div class="CONGCU"><button type="submit" style="float:right">Lưu</button></div>
+          <br><br>
+        </form> 
+      </div>
+
+
+      
+
+    </div>
+  </body>
+</html>

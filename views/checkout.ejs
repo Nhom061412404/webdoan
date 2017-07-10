@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./partials/stylesheet.ejs %>
+  </head>
+  <body>
+    <div class="wrapper">
+		<!--Them phan` menu !-->
+    	<% include ./partials/header.ejs %>
+
+      <div class="clearfix">
+      </div>
+      
+      <div class="container_fullwidth">
+        <div class="container">
+          <div class="row">
+            
+            <div class="col-md-12">
+              <div class="checkout-page">
+                <ol class="checkout-steps">
+                  
+                  <li class="ship-info">
+                   
+                    <div class="ship-description">
+                      <form role="form" action="/checkout" method="post" name="checkoutForm" onsubmit="return validateFormCheckout()">
+                      
+                        <div class="row">
+                          <div class="col-md-6 col-sm-6">
+                            <div class="your-details">
+                              <h5>
+                                Thông tin liên hệ giao hàng
+                              </h5>
+                              <div class="form-row">
+                                <label class="lebel-abs">
+                                  Họ và tên:
+                                  <strong class="red">
+                                    *
+                                  </strong>
+                                </label>
+                                <input type="text" class="input namefild" name="hoten" value="<%= hoten %>">
+                              </div>
+                              
+                              <div class="form-row">
+                                <label class="lebel-abs">
+                                  Email:
+                                  <strong class="red">
+                                    *
+                                  </strong>
+                                </label>
+                                <input type="text" class="input namefild" name="email" value="<%= email %>">
+                              </div>
+                              <div class="form-row">
+                                <label class="lebel-abs">
+                                  Số điện thoại: 
+                                  <strong class="red">
+                                    *
+                                  </strong>
+                                </label>
+                                <input type="text" class="input namefild" name="sodienthoai" value="<%= sodienthoai %>">
+                              </div>
+                            
+                              
+                            </div>
+                          </div>
+                          <div class="col-md-6 col-sm-6">
+                            <div class="your-details">
+                              <h5>
+                                Địa chỉ giao hàng
+                              </h5>
+                              <div class="form-row">
+                                <label class="lebel-abs">
+                                  Điạ chỉ:
+                                  <strong class="red">
+                                    *
+                                  </strong>
+                                </label>
+                                <input type="text" class="input namefild" name="diachi" value="<%= diachi %>">
+                              </div>
+                              
+                              <p class="privacy">
+                                <span class="input-radio">
+                                  <input type="radio" name="user">
+                                </span>
+                                <span class="text">
+                                  Tôi đông ý với
+                                  <a href="#" class="red">
+                                    điều khoản
+                                  </a>
+                                </span>
+                              </p>
+                              <button type="submit">
+                                Xác nhận
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </li>
+                  
+                </ol>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix">
+          </div>
+        </div>
+      </div>  
+
+      <div class="clearfix">
+      </div>
+
+	<% include ./partials/footer.ejs %>
+    </div>
+    </div>
+    
+
+    <% include ./partials/script.ejs %>
+    
+  </body>
+</html>

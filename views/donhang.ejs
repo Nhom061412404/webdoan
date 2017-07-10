@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC>
+<html>
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <link rel="stylesheet" type="text/css" href="/stylesheets/admin-css.css">
+      <title>Quản lý đơn hàng</title>
+  </head>
+
+  <body id="content">
+  	<div class="w1000">
+
+      <% include ./partials/menu.ejs %>
+
+      <!--<form action="#" name="frmSearchProduct" method="get" style="margin:0px;">
+        <input type="hidden" name="page" value="dta_donhang">
+       	<input type="hidden" name="do" value="list">-->
+          <table class="bordered">
+            <tbody><script type="text/javascript">
+                    function themDH(){
+                      document.getElementById("form_themDH").hidden = "";
+                    }
+                  </script>
+              <tr><th width="860">QUẢN LÝ ĐƠN HÀNG</th>
+                <th width="140"><input type="image" src="images/themmoi.png" name="nut-them" onClick = "themDH();"></th>
+              </tr>
+                <tr>
+                  <!--<th>
+                    Từ khóa <input style="WIDTH: 300px" name="Key"> &nbsp;&nbsp;&nbsp;&nbsp;Ngày: <input style="WIDTH: 50px" name="Ngay" value=""> Tháng: <input style="WIDTH: 50px" name="Thang" value="" onfocus="if (this.value == &#39;&#39;) {this.value = &#39;&#39;;}" onblur="if (this.value == &#39;&#39;) {this.value = &#39;&#39;;}"> Năm: <input style="WIDTH: 50px" name="Nam" value="" onfocus="if (this.value == &#39;&#39;) {this.value = &#39;&#39;;}" onblur="if (this.value == &#39;&#39;) {this.value = &#39;2017&#39;;}"> <input class="button" type="submit" value="Tìm kiếm">
+                  </th>-->
+                </tr>
+            </tbody>
+          </table>
+      </form>
+
+      <table class="bordered">
+          <thead>
+            <tr>
+              <th width="120">Người mua</th>
+              <th width="80">Điện thoại</th>
+              <th width="60">Địa chỉ</th>
+              <th width="90">Email</th>
+              <th width="100">Giỏ hàng</th>
+              <th width="60">Tổng tiền</th>
+        		  <th width="70">Trạng thái</th>
+        		  <th width="60">Sửa/Xóa</th>
+        	  </tr>
+          </thead>
+
+      
+
+          <tbody>
+          <!--form tra cứu đơn hàng-->
+           <form action="/donhang" method="get">
+            <% donhangs.forEach( function(donhang) {%>
+              <tr>
+                    <td><%= donhang.hoten %></td>
+                    <td><%= donhang.sodienthoai %></td>
+                    <td><%= donhang.diachi %></td>
+                    <td><%= donhang.email %></td>
+                    <td><%= donhang.giohang %></td>
+                    <td><%= donhang.tongtien %></td>
+                    <td><strong><%= donhang.trangthai %></strong></td>
+                    <td><button type="button" name="nut-sua"  onclick="location.href='/sua_dh?id=<%= donhang._id %>'" ><img class="icon" src="images/edit.gif" border="0"></button>
+                        <button type="button" name="nut-xoa"  onclick="location.href='/xoa_dh?id=<%= donhang._id %>'" ><img class="icon" src="images/delete.gif" border="0"></button></td>
+                </tr>
+              <% }) %>
+
+            </form>
+
+            <!--form thêm đơn hàng-->
+        <div hidden="hidden" id="form_themDH">
+          <form action="/them_dh" method="post" >
+          <p style="color:black;font-size:15px;">Nhập đủ thông tin vào form dưới đây để thêm đơn hàng</p>
+          <input type="text" name="ten" placeholder="Nhập tên khách" style="width: 130; height:35" autofocus>
+          <input type="text" name="sdt" placeholder="Nhập số điện thoại" style="width: 90; height:35">
+          <input type="text" name="addr" placeholder="Nhập địa chỉ" style="width: 135; height:35">
+          <input type="text" name="mail" placeholder="Nhập email" style="width: 120; height:35">
+          <input type="text" name="cart" placeholder="Nhập giỏ hàng" style="width: 300; height:35">
+          <input type="text" name="total" placeholder="Nhập tổng tiền" style="width: 70; height:35">
+          <select name="state" style="width: 70; height:35">
+            <option ><--Chọn tình trạng đơn hàng--></option>
+            <option value ="ChuaXuLy">Chưa xử lý</option>
+            <option value ="DangXuLy">Đang xử lý</option>
+            <option value ="DaXuLy">Đã xử lý</option></select>
+          <button type="submit"style="width: 60;float:right">Xong</button></div>
+          </form>
+        </div>
+
+          </tbody>
+        </table>
+      <!--form sửa đơn hàng-->
+            <div id="form_suaDH">
+        <form action="/sua_dh" method="post" >
+          <p style="color:black;font-size:15px;">Nhập lại thông tin chỉnh sửa theo form dưới đây để cập nhật đơn hàng</p>
+            <input type="hidden" name="id" value="<%= id %>">
+            <input type="text" name="ten" value='<%= editten %>' style="width: 130; height:35"autofocus>
+            <input type="text" name="sdt" value='<%= editsdt %>' style="width: 90; height:35">
+            <input type="text" name="addr" value='<%= edithangsp %>' style="width: 140; height:35">
+            <input type="text" name="email" value='<%= editloaisp %>' style="width: 110; height:35">
+            <input type="text" name="cart" value='<%= editsoluong %>' style="width: 300; height:35">
+            <input type="text" name="total" value='<%= editgia %>' style="width: 70; height:35">
+            <select name="state" style="width: 70; height:35">
+              <option ><%= editmota %></option>
+              <option value ="ChuaXuLy">Chưa xử lý</option>
+              <option value ="DangXuLy">Đang xử lý</option>
+              <option value ="DaXuLy">Đã xử lý</option></select>
+          
+          <button type="submit"style="width: 60;float:right">Lưu</button></div>
+          <br><br>
+        </form></div>
+
+        
+            
+
+    </div>
+  </body>
+</html>

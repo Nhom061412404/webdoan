@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC>
+<html >
+  <head>
+      <% include ./partials/stylesheet.ejs %>
+  </head>
+
+  <body id="content">
+  	<div class="w1000">
+
+      <% include ./partials/menu.ejs %>  
+
+      <form action="#" method="post">
+          <table class="bordered">
+            <thead>
+                <tr>
+                  <th colspan="2" style="color: black ; text-transform:uppercase">Danh sách loại thông tin</th>
+                  <th> <a href="#" title="Thêm mới"><img src="./images/themmoi.png" border="0"></a></th>
+                </tr>
+                <tr>
+                  <th width="600">Tên loại thông tin</th>
+                  <th width="200">Vị trí</th>
+                  <th witdh="200">Công cụ</th>
+            	  </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td><a title="Sửa" href="#">Khuyến mãi 14/2 </a></td>
+                  <td width="50"><input name="txtVitri42" id="txtVitri42" style="WIDTH: 30px" value="1"></td>
+                  <td width="100"><a title="Sửa" href="#"><img class="icon" src="./images/edit.gif" border="0"></a>
+                    <a title="Xóa" href="#"><img class="icon" src="./images/delete.gif" border="0"></a></td>
+                </tr>
+
+                <tr>
+                  <td><a title="Sửa" href="#">New arrival winter-spring 2017 </a></td>
+                  <td width="50"><input name="txtVitri42" id="txtVitri42" style="WIDTH: 30px" value="2"></td>
+                  <td width="100"><a title="Sửa" href="#"><img class="icon" src="./images/edit.gif" border="0"></a>
+                    <a title="Xóa" href="#"><img class="icon" src="./images/delete.gif" border="0"></a></td>
+                </tr>
+
+                <tr>
+                  <td><a title="Sửa" href="#">Sale off 50% cuối năm</a></td>
+                  <td width="50"><input name="txtVitri42" id="txtVitri42" style="WIDTH: 30px" value="3"></td>
+                  <td width="100"><a title="Sửa" href="#"><img class="icon" src="./images/edit.gif" border="0"></a>
+                    <a title="Xóa" href="#"><img class="icon" src="./images/delete.gif" border="0"></a></td>
+                </tr>
+
+                <tr>
+                  <td><a title="Sửa" href="#">Hàng hot mùa Tết </a></td>
+                  <td width="50"><input name="txtVitri42" id="txtVitri42" style="WIDTH: 30px" value="4"></td>
+                  <td width="100"><a title="Sửa" href="#"><img class="icon" src="./images/edit.gif" border="0"></a>
+                    <a title="Xóa" href="#"><img class="icon" src="./images/delete.gif" border="0"></a></td>
+                </tr>
+            </tbody>
+          </table>
+        <input class="submitadmin" type="submit" value="Cập nhật" name="btnSubmit">
+      </form>
+
+    </div>
+  </body>
+</html>

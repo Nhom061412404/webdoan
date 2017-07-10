@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./partials/stylesheet.ejs %>
+  </head>
+  <body id="home">
+    <div class="wrapper">
+		<!--Them phan` menu !-->
+    	<% include ./partials/header.ejs %>
+      <div class="clearfix">
+      </div>
+      <% include ./partials/slider.ejs %>
+      <div class="clearfix">
+      </div>
+      <div class="container_fullwidth">
+        <div class="container">
+          <div class="hot-products">
+             <h3 class="title">Sản phẩm <strong>Bán chạy</strong></h3>
+             <div class="control"><a id="prev_hot" class="prev" href="#">&lt;</a><a id="next_hot" class="next" href="#">&gt;</a></div>
+             <ul id="hot">
+                <li>
+                   <div class="row">
+                      <% sanphambanchay.forEach( function(sanpham) {%>
+                      <div class="col-md-3 col-sm-6">
+                         <div class="products">
+                            <div class="single-products">
+                              <div class="text-center">
+                                <div class="thumbnail"><a href="productdetail?id=<%= sanpham._id %>"><img src="<%= sanpham.hinh_sp %>" alt="Hình sản phẩm"></a></div>
+                                <a href="productdetail?id=<%= sanpham._id %>"><p class="productname"><%= sanpham.ten_sp %></p></a>
+                                <h2 class ="price"><%= sanpham.gia_sp %></h2>
+                                <a href="/add-to-cart/<%= sanpham._id %>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                              </div>
+                            </div>
+                         </div>
+                          <% if(sanpham.sale_sp == true){ %>
+                          <img src="images/sale.png" class="new" alt="" />
+                          <% }else if( sanpham.new_sp == true ){ %>
+                         <img src="images/new.png" class="new" alt="" />
+                         <% } %>
+
+                      </div>
+                      <% }) %>
+                      
+                   </div>
+                </li>
+             </ul>
+
+          </div>
+          <div class="clearfix"></div>
+          <div class="featured-products">
+             <h3 class="title">Sản phẩm <strong>Đặc sắc</strong> </h3>
+             <div class="control"><a id="prev_featured" class="prev" href="#">&lt;</a><a id="next_featured" class="next" href="#">&gt;</a></div>
+             <ul id="featured">
+                <li>
+                   <div class="row">
+                      <% sanphamdacsac.forEach( function(sanpham) {%>
+                      <div class="col-md-3 col-sm-6">
+                         <div class="products">
+                            <div class="single-products">
+                              <div class="text-center">
+                                <div class="thumbnail"><a href="productdetail?id=<%= sanpham._id %>"><img src="<%= sanpham.hinh_sp %>" alt="Hình sản phẩm"></a></div>
+                                <a href="productdetail?id=<%= sanpham._id %>"><p class="productname"><%= sanpham.ten_sp %></p></a>
+                                <h2 class ="price"><%= sanpham.gia_sp %></h2>
+                                <a href="/add-to-cart/<%= sanpham._id %>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                              </div>
+                            </div>
+                         </div>
+                         <img src="images/new.png" class="new" alt="" />
+                      </div>
+                      <% }) %>
+                      
+                   </div>
+                </li>
+
+             </ul>
+          </div>
+          <div class="clearfix">
+          </div>
+          <div class="our-brand">
+            <h3 class="title">
+              
+              Các
+              <strong>
+                Hãng 
+              </strong>
+            </h3>
+            <div class="control">
+              <a id="prev_brand" class="prev" href="#">
+                &lt;
+              </a>
+              <a id="next_brand" class="next" href="#">
+                &gt;
+              </a>
+            </div>
+            <ul id="braldLogo">
+              <li>
+                <ul class="brand_item">
+                  <li>
+                    <a href="productlist">
+                      <div class="brand-logo">
+                        <img src="images/brand/calvinklein.jpg" alt="Hãng 1">
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="productlist">
+                      <div class="brand-logo">
+                        <img src="images/brand/polo.jpg" alt="Hãng 2">
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="productlist">
+                      <div class="brand-logo">
+                        <img src="images/brand/exist.jpg" alt="Hãng 3">
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="productlist">
+                      <div class="brand-logo">
+                        <img src="images/brand/clever.jpg" alt="Hãng 4">
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="productlist">
+                      <div class="brand-logo">
+                        <img src="images/brand/tommy.jpg" alt="Hãng 5">
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+      
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix">
+      </div>
+
+	<% include ./partials/footer.ejs %>
+    </div>
+    </div>
+  <% include ./partials/script.ejs %>
+      <script type="text/javascript" src="javascripts/script.js" ></script>
+  </body>
+</html>

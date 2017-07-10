@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./partials/stylesheet.ejs %>
+  </head>
+  <body>
+    <div class="wrapper">
+		<!--Them phan` menu !-->
+    	<% include ./partials/header.ejs %>
+
+      <div class="clearfix">
+      </div>
+      
+      <div class="container_fullwidth">
+          <section>
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3">
+                </div>
+                
+                <div class="col-sm-9 padding-right ship-info">
+
+                  <div class="container" style="margin: 10px;">
+                    <div class="row accountInfo" id="accountInfo"><h2>Đăng ký tài khoản</h2></div>
+                    <div class="col-md-12"><hr></div>
+                    <form role="form" action="/register" method="post">
+                      
+                      <div class="form-group col-md-12">
+                        <label for="fullname" class="col-md-2">
+                          Họ Tên: <strong class="red"> * </strong>
+                        </label>
+                        <div class="col-md-6">
+                          <input type="text" class="form-control" name="reg_fullname" id="reg-fullname" placeholder="Nhập họ tên" required oninvalid="this.setCustomValidity('Vui lòng nhập họ tên')"   oninput="setCustomValidity('')">
+
+                        </div>
+                        
+                      </div>
+                      <div class="form-group col-md-12">
+                        <label for="username" class="col-md-2">
+                          Tên đăng nhập: <strong class="red"> * </strong>
+                        </label>
+                        <div class="col-md-6">
+                          <input type="text" class="form-control" id="reg-username" placeholder="Nhập tên đăng nhập" name="reg_username" required oninvalid="this.setCustomValidity('Vui lòng nhập tên đăng nhập')"   oninput="setCustomValidity('')">
+
+                        </div>
+                        
+                      </div>
+                      <div class="form-group col-md-12">
+                        <label for="new-password" class="col-md-2">
+                          Mật khẩu: <strong class="red"> * </strong>
+                        </label>
+                        <div class="col-md-6">
+                          <input type="password" class="form-control" id="reg-new-password" name="reg_password" placeholder="Nhập mật khẩu" required oninvalid="this.setCustomValidity('Vui lòng nhập mật khẩu')"   oninput="setCustomValidity('')">
+
+                        </div>
+                        
+                      </div>
+                   
+                      <div class="form-group col-md-12">
+                        <label for="confirm-password" class="col-md-2">
+                          Nhập lại mật khẩu: <strong class="red"> * </strong>
+                        </label>
+                        <div class="col-md-6">
+                          <input type="password" class="form-control" id="reg-confirm-password" name="reg_confirm_password" placeholder="Nhập lại mật khẩu" required oninvalid="this.setCustomValidity('Vui lòng xác nhận lại mật khẩu')"   oninput="setCustomValidity('')">
+                        </div>
+                        
+                      </div>
+
+                   
+                      <div class="form-group col-md-12">
+                        <label for="phonenumber" class="col-md-2">
+                          Số điện thoại:
+                        </label>
+                        <div class="col-md-6">
+                          <input type="text" class="form-control" id="reg-phonenumber" name="reg_phonenumber" placeholder="Nhập số  điện thoại">
+                        </div>
+                      </div>
+                   
+                      <div class="form-group col-md-12">
+                        <label for="emailaddress" class="col-md-2">
+                          Địa chỉ email: 
+                        </label>
+                        <div class="col-md-6">
+                          <input type="email" class="form-control" id="reg-emailaddress" name="reg_emailaddress" placeholder="Nhập địa chỉ email">
+
+                        </div>
+                        
+                      </div>
+                   
+                      <div class="form-group col-md-12">
+                        <label for="address" class="col-md-2">
+                          Địa chỉ:
+                        </label>
+                        <div class="col-md-6">
+                          <input type="text" class="form-control" id="reg-address" name="reg_address" placeholder="Nhập địa chỉ">
+                        </div>
+                      </div>
+                   
+                      <div class="row">
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-3">
+                          <button type="submit" class="btn btn-info" id="register">
+                            Tạo tài khoản
+                          </button>
+                        </div>
+
+                      </div>
+                    </form>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </section>
+      </div>
+
+      <div class="clearfix">
+      </div>
+
+	<% include ./partials/footer.ejs %>
+    </div>
+    </div>
+    
+
+    <% include ./partials/script.ejs %>
+    <script type="text/javascript" src="javascripts/register.js" ></script>
+  </body>
+</html>

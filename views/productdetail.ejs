@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./partials/stylesheet.ejs %>
+  </head>
+  <body>
+    <div class="wrapper">
+		<!--Them phan` menu !-->
+    	<% include ./partials/header.ejs %>
+
+      <div class="clearfix">
+      </div>
+      
+      <div class="clearfix">
+      </div>
+      <div class="container_fullwidth">
+          <section>
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3">
+                <% include ./partials/leftbar.ejs %>
+                </div>
+        
+        <div class="col-sm-9 padding-right">
+          <div class="product-details"><!--product-details-->
+            <div class="col-sm-4">
+              <div class="view-product">
+                <img src="<%= sanpham.hinh_sp %>" alt="" />
+              </div>
+              <img src="images/new.png" class="new" alt="" />
+            </div>
+            <div class="col-sm-8">
+              <div class="product-information"><!--/product-information-->
+                <!--<img src="images/product-details/new.jpg" class="newarrival" alt="" />-->
+                <h2><strong><%= sanpham.ten_sp %></strong></h2>
+                  <span><span><%= sanpham.gia_sp %></span>
+                  <!--<label>Số lượng:</label> Chưa làm được chọn số lượng
+                  <input type="text" value="3" />!-->
+                  <a href="/add-to-cart/<%= sanpham._id %>"><button  type="button" class="btn btn-fefault cart">
+                    <i class="fa fa-shopping-cart"></i>
+                    Thêm vào giỏ
+                  </button></a>
+                </span>
+
+                <p><b>Tình trạng:</b> Còn hàng</p>
+                <!--<p><b>Condition:</b> New</p>-->
+                <p><b>Hãng:</b><%= sanpham.hang_sp %></p>
+
+<div class="fb-like" data-href="https://mickeyshop.herokuapp.com/productdetail?id=<%= sanpham._id %>" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+
+              </div><!--/product-information-->
+            </div>
+          </div><!--/product-details-->
+          
+
+                    <div class="category-tab shop-details-tab"><!--category-tab-->
+            <div class="col-sm-12">
+              <ul class="nav nav-tabs">
+                <li class="active"><a href="#details" data-toggle="tab">Mô tả</a></li>
+
+                <li><a href="#reviews" data-toggle="tab">Đánh giá (1)</a></li>
+              </ul>
+            </div>
+            <div class="tab-content">
+              <div class="tab-pane fade active in" id="details" >
+                <p><%= sanpham.mota_sp %></p>
+              </div>
+              
+              
+              <div class="tab-pane fade" id="reviews" >
+                <div class="col-sm-12">
+                  <ul>
+                    <li><a href=""><i class="fa fa-user"></i>Holmes</a></li>
+                    <li><a href=""><i class="fa fa-clock-o"></i>12:41 PM</a></li>
+                    <li><a href=""><i class="fa fa-calendar-o"></i>31/03/2017</a></li>
+                  </ul>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                  <p><b>Đánh giá của bạn</b></p>
+                  
+                  <form action="#">
+                    <span>
+                      <input type="text" placeholder="Tên của bạn"/>
+                      <input type="email" placeholder="Tài khoản email"/>
+                    </span>
+                    <textarea name="" ></textarea>
+                    <button type="button" class="btn btn-default pull-right">
+                      Gửi
+                    </button>
+                  </form>
+                </div>
+              </div>
+              
+            </div>
+          </div><!--/category-tab-->
+
+
+          <div class="recommended_items"><!--recommended_items-->
+            <h2 class="title text-center">Các sản phẩm khác</h2>
+            <!-- //Có thời gian sẽ làm
+            <div >
+              
+                
+                
+                    <div class="col-sm-4">
+                      <div class="product-image-wrapper">
+                        <div class="products">
+                           <div class="single-products">
+                             <div class="text-center">
+                               <div class="thumbnail"><a href="productdetail"><img src="images/product/small/hot1.jpg" alt="Hình sản phẩm"></a></div>
+                               <a href="productdetail"><p class="productname">Sản phẩm 1</p></a>
+                               <h2 class ="price">60.000đ</h2>
+                               <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                             </div>
+                           </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="product-image-wrapper">
+                        <div class="products">
+                           <div class="single-products">
+                             <div class="text-center">
+                               <div class="thumbnail"><a href="productdetail"><img src="images/product/small/hot1.jpg" alt="Hình sản phẩm"></a></div>
+                               <a href="productdetail"><p class="productname">Sản phẩm 2</p></a>
+                               <h2 class ="price">60.000đ</h2>
+                               <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                             </div>
+                           </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="product-image-wrapper">
+                        <div class="products">
+                           <div class="single-products">
+                             <div class="text-center">
+                               <div class="thumbnail"><a href="productdetail"><img src="images/product/small/hot1.jpg" alt="Hình sản phẩm"></a></div>
+                               <a href="productdetail"><p class="productname">Sản phẩm 3</p></a>
+                               <h2 class ="price">60.000đ</h2>
+                               <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                             </div>
+                           </div>
+                        </div>
+                        <img src="images/new.png" class="new" alt="" />
+                      </div>
+                    </div>
+                </div>
+
+               
+          !-->
+          </div><!--/recommended_items-->
+          
+        </div>
+
+              </div>
+        
+            </div>
+          </section>
+      </div>
+      <div class="clearfix">
+      </div>
+
+	<% include ./partials/footer.ejs %>
+    </div>
+    </div>
+    
+
+    <script src="javascripts/jquery.js"></script>
+    <script src="javascripts/price-range.js"></script>
+    <% include ./partials/script.ejs %>
+    <script type="text/javascript" src="javascripts/script.js" ></script>
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9&appId=1835406846785180";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+  </body>
+</html>

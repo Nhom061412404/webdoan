@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./partials/stylesheet.ejs %>
+  </head>
+  <body>
+    <div class="wrapper">
+		<!--Them phan` menu !-->
+    	<% include ./partials/header.ejs %>
+
+      <div class="clearfix">
+      </div>
+      
+      <div class="clearfix">
+      </div>
+      <div class="container_fullwidth">
+              <div class="container shopping-cart ">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h3 class="title">
+                      Giỏ hàng của bạn
+                    </h3>
+                    <div class="clearfix">
+                    </div>
+
+
+                    <table class="shop-table">
+                      <thead>
+                        <tr>
+                          <th>
+                            Hình sản phẩm
+                          </th>
+                          <th>
+                            Chi tiết
+                          </th>
+                          <th>
+                            Giá
+                          </th>
+                          <th>
+                            Số lượng
+                          </th>
+                          <th>
+                            Tổng giá
+                          </th>
+                          <th>
+                            Xóa
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% sanphams.forEach( function(sanpham) {%>
+                        <tr>
+                          <td>
+                            <img src="<%= sanpham.item.hinh_sp %>" alt="">
+                          </td>
+                          <td>
+                            <div class="shop-details">
+                              <div class="productname">
+                                <%= sanpham.item.ten_sp %>
+                              </div>
+                              
+                              <p>
+                              Hãng: <%= sanpham.item.hang_sp %>
+                              </p>
+                            </div>
+                          </td>
+                          <td>
+                            <h5>
+                              <%= sanpham.item.gia_sp %>
+                            </h5>
+                          </td>
+                          <td>
+                            <%= sanpham.quantity %>
+                          </td>
+                          <td>
+                            <h5>
+                              <strong class="red">
+                                 <%= sanpham.item.gia_sp * sanpham.quantity  %>
+                              </strong>
+                            </h5>
+                          </td>
+                          <td>
+                            <a href="/delete-from-cart/<%= sanpham.item._id %>">
+                              <img src="images/remove.png" alt="">
+                            </a>
+                          </td>
+                        </tr>
+                        <% }) %>
+                      
+                      
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <td colspan="6">
+                            
+                            
+                          <div class="col-md-6"></div>
+                            <button class="pull-right col-md-2" onClick="location.href='/'">
+                              Tiếp tục mua sắm
+                            </button>
+                          </td>
+                        </tr>
+                      </tfoot>
+                    </table>
+                    <div class="clearfix">
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4 col-sm-6">
+                        
+                      </div>
+                      <div class="col-md-4 col-sm-6">
+                        
+                      </div>
+                      <div class="col-md-4 col-sm-6">
+                        <div class="cartbox">
+                        
+                          <div class="grandtotal">
+                            <h5>
+                              Tổng tiền:
+                            </h5>
+                            <span>
+                              <%= tongtien %>
+                            </span>
+                          </div>
+                          <button class="col-md-6" onClick="location.href='/payment'">
+                              Thanh toán trực tuyến
+                            </button>
+                          <button class="col-md-6" onClick="location.href='checkout'">
+                              Đặt hàng thanh toán
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="clearfix">
+                </div>
+                
+              </div>
+          
+      </div>
+      <div class="clearfix">
+      </div>
+
+	<% include ./partials/footer.ejs %>
+    </div>
+    </div>
+    
+
+    <% include ./partials/script.ejs %>
+    
+  </body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC>
+<html>
+  <head>
+      <% include ./partials/stylesheet.ejs %>
+  </head>
+
+  <body id="content">
+  	<div class="w1000">
+      
+      <% include ./partials/menu.ejs %>  
+
+      <table class="bordered">
+        <thead>
+          <tr>
+            <td colspan="6"><strong>DANH SÁCH THÀNH VIÊN</strong></td><script type="text/javascript">
+                    function themTV(){
+                      document.getElementById("form_themTV").hidden = "";
+                    }
+                  </script>
+            <th><input type="image" src="images/themmoi.png" name="nut-them" onClick = "themTV();"></th>
+          </tr>
+
+          <!--<tr>
+              <td colspan="9">
+                <form action="#" name="frmSearchProduct" method="get" style="margin:0px;">
+        										<input type="hidden" name="page" value="dta_thanhvien">
+        										<input type="hidden" name="do" value="list">
+                                					Nhập từ khóa:
+                            <input style="WIDTH: 400px" name="Key">                
+                            <input class="button" type="submit" value="Tìm kiếm"> 
+        				</form>
+              </td>
+          </tr>-->
+          <tr>
+              <th width="100">Username</th>
+              <th width="140">Password</th>
+              <th width="140">Họ tên</th>
+              <th width="100">Điện thoại</th>
+              <th width="200">Email</th>
+              <th width="200">Địa chỉ</th>
+              <th width="100">Sửa xóa</th>
+          </tr>
+
+          
+        </thead>
+          <!--form thêm thành viên-->
+        <div hidden="hidden" id="form_themTV">
+          <form action="/them_tv" method="post" >
+            <p style="color:black;font-size:15px;">Nhập đủ thông tin vào form dưới đây để thêm thành viên</p>
+            <input type="text" name="uname" placeholder="Nhập username" style="width: 110; height:35" autofocus >
+            <input type="text" name="pass" placeholder="Nhập password" style="width: 140; height:35">
+            <input type="text" name="hten" placeholder="Nhập họ tên" style="width: 130; height:35">
+            <input type="text" name="dthoai" placeholder="Nhập điện thoại" style="width: 100; height:35">
+            <input type="text" name="email" placeholder="Nhập email" style="width: 200; height:35">
+            <input type="text" name="dchi" placeholder="Nhập địa chỉ" style="width: 185; height:35">
+            <button type="submit"style="width: 60;">Xong</button></div>
+          </form>
+        </div>
+        <% users.forEach( function(user) {%>
+        <tbody>
+          <tr>
+              <td><%= user.username %></td>
+              <td><%= user.password %></td>
+              <td><%= user.hoten %></td>
+              <td><%= user.sdt %></td>
+              <td><%= user.email %></td>
+              <td><%= user.diachi %></td>
+              <td><button type="button" name="nut-sua"  onclick="location.href='/sua_tv?id=<%= user._id %>'" ><img class="icon" src="images/edit.gif" border="0"></button>
+                  <button type="button" name="nut-xoa"  onclick="location.href='/xoa_tv?id=<%= user._id %>'" ><img class="icon" src="images/delete.gif" border="0"></button></td>
+          </tr>
+        </tbody>
+        <% }) %>
+      </table>
+        
+          <!--form sửa thành viên-->
+        <div id="form_suaTV">
+          <form action="/sua_tv" method="post" >
+            <input type="hidden" name="id" value="<%= id %>">
+            <p style="color:black;font-size:15px;">Nhập lại thông tin chỉnh sửa theo form dưới đây để cập nhật thành viên</p>
+            <input type="text" name="uname" value="<%= editten %>" style="width: 110; height:35" autofocus >
+            <input type="text" name="pass" value="<%= editma %>" style="width: 140; height:35">
+            <input type="text" name="hten" value="<%= editloaisp %>" style="width: 130; height:35">
+            <input type="text" name="dthoai" value="<%= edithangsp %>" style="width: 100; height:35">
+            <input type="text" name="email" value="<%= editgia %>" style="width: 200; height:35">
+            <input type="text" name="dchi" value="<%= editsoluong %>" style="width: 185; height:35">
+            <button type="submit"style="width: 60;">Lưu</button></div>
+          </form>
+        </div>
+    </div>
+  </body>
+</html>

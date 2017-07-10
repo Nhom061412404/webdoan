@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/editor.css">
+        <% include ./partials/stylesheet-admin.ejs %>
+    </head>
+
+    <body id="content">
+    	<div class="w1000">
+
+            <% include ./partials/menu.ejs %>
+
+            <form action="#" method="post" >
+                <table class="bordered">
+
+             	<tbody>
+                    <tr>
+                    	<td width="150">Địa chỉ website:</td>
+                        <td><input name="txtWebsite" style="WIDTH: 500px" value="http://www.quanlotnam.com/"></td>
+                    </tr>
+                    <tr>
+                    	<td>Mô tả:</td>
+                        <td><input name="txtDescription" id="txtDescription" style="WIDTH: 500px" value="Chuyên cung cấp sỉ và lẻ quần lót dành cho nam trên toàn quốc"></td>
+                    </tr>
+                    <tr>
+                    	<td>Keyword:</td>
+                        <td><input name="txtKeyword" id="txtKeyword" style="WIDTH: 500px" value="Quần lót nam"></td>
+                    </tr>
+
+
+                    <tr>
+                    	<td>Hotline:</td>
+                        <td><input name="txtHotline" style="WIDTH: 500px" value="19006969"></td>
+                    </tr>
+                    <tr>
+                    	<td>Email nhận thông báo:</td>
+                        <td><input name="txtEmail" id="txtEmail" style="WIDTH: 500px" value="quanlotnam@gmail.com"></td>
+                    </tr>
+
+                <tr>
+                	<td>Về chúng tôi</td>
+                    <td><textarea name="txtGiolam" rows="20" cols="70" class="ckeditor" style="visibility: hidden; display: none;">
+                    	&lt;p&gt;Giới thiệu&lt;br /
+                    	&gt;Định hướng kinh doanh&lt;br /
+                    	&gt;Hướng dẫn đặt hàng&lt;br /
+                    	&gt;Hợp tác phát triển&lt;br /
+                    	&gt;Tiêu chí hoạt động&lt;br /
+                    	&gt;Hệ thống cửa hàng&lt;br /
+                    	&gt;&nbsp;&lt;/p&gt;
+                </textarea><div id="cke_txtGiolam" class="cke_2 cke cke_reset cke_chrome cke_editor_txtGiolam cke_ltr cke_browser_webkit cke_browser_quirks" dir="ltr" lang="en" role="application" aria-labelledby="cke_txtGiolam_arialbl"><span id="cke_txtGiolam_arialbl" class="cke_voice_label">Rich Text Editor, txtGiolam</span><div class="cke_inner cke_reset" role="presentation"><span id="cke_2_top" class="cke_top cke_reset_all" role="presentation" style="height: auto; user-select: none;"><span id="cke_89" class="cke_voice_label">Editor toolbars</span><span id="cke_2_toolbox" class="cke_toolbox" role="group" aria-labelledby="cke_89" onmousedown="return false;"><span id="cke_94" class="cke_toolbar" aria-labelledby="cke_94_label" role="toolbar"><span id="cke_94_label" class="cke_voice_label">Document</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_95" class="cke_button cke_button__source  cke_button_off" href="javascript:void(&#39;Source&#39;)" title="Source" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_95_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(130,event);" onfocus="return CKEDITOR.tools.callFunction(131,event);" onclick="CKEDITOR.tools.callFunction(132,this);return false;">
+
+                <span class="cke_button_icon cke_button__source_icon" style="background-image:url(#);background-position:0 -840px;background-size:auto;">&nbsp;</span><span id="cke_95_label" class="cke_button_label cke_button__source_label" aria-hidden="false">Source</span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_98" class="cke_toolbar" aria-labelledby="cke_98_label" role="toolbar">
+
+
+                <span id="cke_138_label" class="cke_voice_label">Styles</span><span class="cke_toolbar_start"></span><span id="cke_90" class="cke_combo cke_combo__styles  cke_combo_off" role="presentation"><span id="cke_90_label" class="cke_combo_label">Styles</span><a class="cke_combo_button" title="Formatting Styles" tabindex="-1" href="javascript:void(&#39;Formatting Styles&#39;)" hidefocus="true" role="button" aria-labelledby="cke_90_label" aria-haspopup="true" onkeydown="return CKEDITOR.tools.callFunction(242,event,this);" onfocus="return CKEDITOR.tools.callFunction(243,event);" onclick="CKEDITOR.tools.callFunction(241,this);return false;"><span id="cke_90_text" class="cke_combo_text cke_combo_inlinelabel">Styles</span><span class="cke_combo_open"><span class="cke_combo_arrow"></span></span></a></span><span id="cke_91" class="cke_combo cke_combo__format  cke_combo_off" role="presentation"><span id="cke_91_label" class="cke_combo_label">Format</span><a class="cke_combo_button" title="Paragraph Format" tabindex="-1" href="javascript:void(&#39;Paragraph Format&#39;)" hidefocus="true" role="button" aria-labelledby="cke_91_label" aria-haspopup="true" onkeydown="return CKEDITOR.tools.callFunction(245,event,this);" onfocus="return CKEDITOR.tools.callFunction(246,event);" onclick="CKEDITOR.tools.callFunction(244,this);return false;"><span id="cke_91_text" class="cke_combo_text cke_combo_inlinelabel">Format</span><span class="cke_combo_open"><span class="cke_combo_arrow"></span></span></a></span><span id="cke_92" class="cke_combo cke_combo__font  cke_combo_off" role="presentation"><span id="cke_92_label" class="cke_combo_label">Font</span><a class="cke_combo_button" title="Font Name" tabindex="-1" href="javascript:void(&#39;Font Name&#39;)" hidefocus="true" role="button" aria-labelledby="cke_92_label" aria-haspopup="true" onkeydown="return CKEDITOR.tools.callFunction(248,event,this);" onfocus="return CKEDITOR.tools.callFunction(249,event);" onclick="CKEDITOR.tools.callFunction(247,this);return false;"><span id="cke_92_text" class="cke_combo_text cke_combo_inlinelabel">Font</span><span class="cke_combo_open"><span class="cke_combo_arrow"></span></span></a></span><span id="cke_93" class="cke_combo cke_combo__fontsize  cke_combo_off" role="presentation"><span id="cke_93_label" class="cke_combo_label">Size</span><a class="cke_combo_button" title="Font Size" tabindex="-1" href="javascript:void(&#39;Font Size&#39;)" hidefocus="true" role="button" aria-labelledby="cke_93_label" aria-haspopup="true" onkeydown="return CKEDITOR.tools.callFunction(251,event,this);" onfocus="return CKEDITOR.tools.callFunction(252,event);" onclick="CKEDITOR.tools.callFunction(250,this);return false;"><span id="cke_93_text" class="cke_combo_text cke_combo_inlinelabel">Size</span><span class="cke_combo_open"><span class="cke_combo_arrow"></span></span></a></span><span class="cke_toolbar_end"></span></span></span></span><div id="cke_2_contents" class="cke_contents cke_reset" role="presentation" style="height: 200px;"><span id="cke_142" class="cke_voice_label">Press ALT 0 for help</span><iframe src="./saved_resource1" frameborder="0" class="cke_wysiwyg_frame cke_reset" title="Rich Text Editor, txtGiolam" aria-describedby="cke_142" tabindex="0" allowtransparency="true" style="width: 100%; height: 100%;"></iframe></div><span id="cke_2_bottom" class="cke_bottom cke_reset_all" role="presentation" style="user-select: none;"><span id="cke_2_resizer" class="cke_resizer cke_resizer_vertical cke_resizer_ltr" title="Resize" onmousedown="CKEDITOR.tools.callFunction(128, event)">◢</span><span id="cke_2_path_label" class="cke_voice_label">Elements path</span><span id="cke_2_path" class="cke_path" role="group" aria-labelledby="cke_2_path_label"><span class="cke_path_empty">&nbsp;</span></span></span></div></div></td>
+                </tr>
+                <tr>
+                	
+                  <tr>
+                	<td>Footer:</td>
+                    <td><textarea name="txtFooter" rows="20" cols="70" class="ckeditor" style="visibility: hidden; display: none;">&lt;h3&gt;&lt;br /&gt;
+                &lt;br /&gt;
+                &lt;span style="color:#D3D3D3"&gt;&lt;em&gt;&lt;strong&gt;&lt;span style="font-size:16px"&gt;QUẦN LÓT NAM&lt;/span&gt;&lt;/strong&gt;&lt;br /&gt;
+                Chuyên cung cấp sỉ và lẻ quần lót dành cho nam trên toàn quốc&lt;/em&gt;&lt;/span&gt;&lt;/h3&gt;
+
+                &lt;ul class="info-address" style="padding-right: 0px; padding-left: 15px; box-sizing: border-box; margin: 1em 0px; color: rgb(52, 44, 42); font-family: Arial, Helvetica, sans-serif;"&gt;
+                	&lt;li class="firstItem" style="box-sizing: border-box;"&gt;&lt;span style="color:#D3D3D3"&gt;Địa chỉ: 722 Đường Nguyễn Văn Cừ, Phường 4, Quận 5, TP.HCM&lt;/span&gt;&lt;/li&gt;
+                	&lt;li style="box-sizing: border-box;"&gt;&lt;span style="color:#D3D3D3"&gt;Email: quanlotnam@gmail.com&lt;/span&gt;&lt;/li&gt;
+                	&lt;li class="lastItem" style="box-sizing: border-box;"&gt;&lt;span style="color:#D3D3D3"&gt;Kinh doanh : 0914.53.00.xx ( Mr: Sơn)&lt;/span&gt;&lt;/li&gt;
+                	&lt;li class="lastItem" style="box-sizing: border-box;"&gt;&lt;span style="color:#D3D3D3"&gt;Tư vấn và kĩ thuật : 0901.453.0xx ( Mr: Phúc )&lt;/span&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+
+                &lt;ul class="info-address" style="box-sizing: border-box; margin: 1em 0px; padding-right: 0px; padding-left: 15px; font-family: Arial, Helvetica, sans-serif;"&gt;
+                	&lt;li class="lastItem" style="box-sizing: border-box;"&gt;&lt;span style="color:#D3D3D3"&gt;Hotline: 08 22111111&nbsp;&lt;/span&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;iframe allowfullscreen="" frameborder="0" height="250" scrolling="no" src="#" width="300"&gt;&lt;/iframe&gt;&lt;
+
+                    ---------------------------------------------------
+                </textarea><div id="cke_txtFooter" class="cke_4 cke cke_reset cke_chrome cke_editor_txtFooter cke_ltr cke_browser_webkit cke_browser_quirks" dir="ltr" lang="en" role="application" aria-labelledby="cke_txtFooter_arialbl">
+                <div class="cke_inner cke_reset" role="presentation">
+                	<span id="cke_4_top" class="cke_top cke_reset_all" role="presentation" style="height: auto; user-select: none;">
+
+                		<span id="cke_4_toolbox" class="cke_toolbox" role="group" aria-labelledby="cke_213" onmousedown="return false;">
+                			<span id="cke_218" class="cke_toolbar" aria-labelledby="cke_218_label" role="toolbar">
+                		<span class="cke_toolgroup" role="presentation"><a id="cke_219" class="cke_button cke_button__source  cke_button_off" href="javascript:void(&#39;Source&#39;)" title="Source" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_219_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(386,event);" onfocus="return CKEDITOR.tools.callFunction(387,event);" onclick="CKEDITOR.tools.callFunction(388,this);return false;">
+
+                <span class="cke_button_icon cke_button__source_icon" style="background-image:url(#);background-position:0 -840px;background-size:auto;">&nbsp;</span>
+                <span id="cke_219_label" class="cke_button_label cke_button__source_label" aria-hidden="false">Source</span><span class="cke_toolbar_end"></span></span><span id="cke_262" class="cke_toolbar" aria-labelledby="cke_262_label" role="toolbar">
+
+                <span id="cke_214_label" class="cke_combo_label">Styles</span><a class="cke_combo_button" title="Formatting Styles" tabindex="-1" href="javascript:void(&#39;Formatting Styles&#39;)" hidefocus="true" role="button" aria-labelledby="cke_214_label" aria-haspopup="true" onkeydown="return CKEDITOR.tools.callFunction(498,event,this);" onfocus="return CKEDITOR.tools.callFunction(499,event);" onclick="CKEDITOR.tools.callFunction(497,this);return false;"><span id="cke_214_text" class="cke_combo_text cke_combo_inlinelabel">Styles</span><span class="cke_combo_open"><span class="cke_combo_arrow"></span></span></a></span><span id="cke_215" class="cke_combo cke_combo__format  cke_combo_off" role="presentation">
+
+                <span id="cke_215_label" class="cke_combo_label">Format</span><a class="cke_combo_button" title="Paragraph Format" tabindex="-1" href="javascript:void(&#39;Paragraph Format&#39;)" hidefocus="true" role="button" aria-labelledby="cke_215_label" aria-haspopup="true" onkeydown="return CKEDITOR.tools.callFunction(501,event,this);" onfocus="return CKEDITOR.tools.callFunction(502,event);" onclick="CKEDITOR.tools.callFunction(500,this);return false;"><span id="cke_215_text" class="cke_combo_text cke_combo_inlinelabel">Format</span><span class="cke_combo_open"><span class="cke_combo_arrow"></span></span></a></span>
+
+                <span id="cke_216_label" class="cke_combo_label">Font</span><a class="cke_combo_button" title="Font Name" tabindex="-1" href="javascript:void(&#39;Font Name&#39;)" hidefocus="true" role="button" aria-labelledby="cke_216_label" aria-haspopup="true" onkeydown="return CKEDITOR.tools.callFunction(504,event,this);" onfocus="return CKEDITOR.tools.callFunction(505,event);" onclick="CKEDITOR.tools.callFunction(503,this);return false;"><span id="cke_216_text" class="cke_combo_text cke_combo_inlinelabel">Font</span><span class="cke_combo_open"><span class="cke_combo_arrow"></span></span></a></span>
+
+                <span id="cke_217_label" class="cke_combo_label">Size</span><a class="cke_combo_button" title="Font Size" tabindex="-1" href="javascript:void(&#39;Font Size&#39;)" hidefocus="true" role="button" aria-labelledby="cke_217_label" aria-haspopup="true" onkeydown="return CKEDITOR.tools.callFunction(507,event,this);" onfocus="return CKEDITOR.tools.callFunction(508,event);" onclick="CKEDITOR.tools.callFunction(506,this);return false;"><span id="cke_217_text" class="cke_combo_text cke_combo_inlinelabel">Size</span><span class="cke_combo_open"><span class="cke_combo_arrow"></span></span></a></span>
+
+                <span class="cke_toolbar_end"></span></span></span></span><div id="cke_4_contents" class="cke_contents cke_reset" role="presentation" style="height: 200px;"><iframe src="./saved_resource2" frameborder="0" class="cke_wysiwyg_frame cke_reset" title="Rich Text Editor, txtFooter" aria-describedby="cke_266" tabindex="0" allowtransparency="true" style="width: 100%; height: 100%;"></iframe></div>
+            								<span class="cke_path_empty">&nbsp;</span>
+            							</span>
+            						</span>
+            					</div>
+            				</div>
+            			</td>
+                </tr>
+                 
+                <tr>
+                	<td>Logo:</td>
+                    <td> 
+                             <img src="/images/logo.png" style="max-width:150px"><br><input name="txtBanner" type="file" id="txtBanner" style="width:300px;"> </td>
+                </tr>
+
+                </tbody></table>
+              <input class="submitadmin" type="submit" value="Cập nhật" name="btnSubmit">					  		
+            </form>
+
+        </div>
+    </body>
+</htm

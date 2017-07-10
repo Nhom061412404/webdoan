@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./partials/stylesheet.ejs %>
+  </head>
+  <body>
+    <div class="wrapper">
+		<!--Them phan` menu !-->
+    	<% include ./partials/header.ejs %>
+
+      <div class="clearfix">
+      </div>
+      
+      <div class="clearfix">
+      </div>
+      <div class="container_fullwidth">
+        <div class="container">
+         
+          </div>
+          <div class="clearfix"></div>
+          <section>
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3">
+                <% include ./partials/leftbar.ejs %>
+                </div>
+                
+                <div class="col-sm-9 padding-right">
+                  <div class="features_items"><!--features_items-->
+                    <h2 class="title text-center">Hàng nổi bật</h2>
+
+                    <% sanphams.forEach( function(sanpham) {%>
+                    <div class="col-sm-4">
+                      <div class="product-image-wrapper">
+                        <div class="products">
+                           <div class="single-products">
+                             <div class="text-center">
+                               <div class="thumbnail"><a href="productdetail?id=<%= sanpham._id %>"><img src="<%= sanpham.hinh_sp %>" alt="Hình sản phẩm" height="140" width="140"></a></div>
+                               <a href="productdetail?id=<%= sanpham._id %>"><p class="productname"><%= sanpham.ten_sp %></p></a>
+                               <h2 class ="price"><%= sanpham.gia_sp %></h2>
+                               <a href="/add-to-cart/<%= sanpham._id %>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                             </div>
+                           </div>
+                        </div>
+                          
+                          <%if (sanpham.sale_sp == true ) {%>  <img src="images/sale.png" class="new" alt="" /> <%}%>
+                          <%if (sanpham.new_sp == true ) {%> <img src="images/new.png" class="new" alt="" />  <%}%>
+                        
+                      </div>
+                    </div>
+                    <% }) %>
+
+
+                    
+                    
+                    
+                    <ul class="pagination">
+                      <li class="active"><a href="/productlist?page=1">1</a></li>
+                      <li><a href="/productlist?page=2">2</a></li>
+                      <li><a href="/productlist?page=3">3</a></li>
+                      <li><a href="">&raquo;</a></li>
+                    </ul>
+                  </div><!--features_items-->
+                </div>
+              </div>
+            </div>
+          </section>
+          </div>
+          <div class="clearfix">
+          </div>
+          
+          </div>
+        </div>  
+      </div>
+      <div class="clearfix">
+      </div>
+
+	<% include ./partials/footer.ejs %>
+    </div>
+    </div>
+    
+
+    <% include ./partials/script.ejs %>
+    <script type="text/javascript" src="javascripts/price-range.js" ></script>
+    <script type="text/javascript" src="javascripts/pricerange.js" ></script>
+    <script type="text/javascript" src="javascripts/index.js" ></script>
+
+  </body>
+</html>

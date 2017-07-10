@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./partials/stylesheet.ejs %>
+  </head>
+  <body>
+    <div class="wrapper">
+		<!--Them phan` menu !-->
+    	<% include ./partials/header.ejs %>
+
+      <div class="clearfix">
+      </div>
+      
+      <div class="clearfix">
+      </div>
+      <div class="container_fullwidth">
+        <div class="container">
+        </div>
+          <div class="clearfix"></div>
+          <section>
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class="left-sidebar">
+                    <h2>Quản lý tài khoản</h2>
+                    <div class="panel-group category-products" id="accordian"><!--category-productsr-->
+
+                      <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h4 class="panel-title"><p>Admin</p></h4>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="panel panel-default">
+                        <div class="panel-heading" id= "category-active">
+                          <h4 class="panel-title"><a href="#"><b>Thông tin tài khoản</b></a></h4>
+                        </div>
+                      </div>
+                      
+                      <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h4 class="panel-title"><a href="/changepassword">Thay đổi mật khẩu</a></h4>
+                        </div>
+                      </div>
+
+                      <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h4 class="panel-title"><a href="/logout">Đăng xuất</a></h4>
+                        </div>
+                      </div>
+                     
+                    </div><!--/category-productsr-->
+                  
+                  </div>
+                </div>
+                
+                <div class="col-sm-9 padding-right">
+
+                  <div class="container" style="margin: 10px;">
+                    <div class="row accountInfo" id="accountInfo"><h2>Thông tin tài khoản</h2></div>
+                    <div class="col-md-12"><hr></div>
+
+                    <form action="changeinfo" method="post">
+                      
+
+                      <div id="view_info">
+                        <div class="form-group col-md-12">
+                          <label for="username" class="col-md-2">
+                            Tên đăng nhập:
+                          </label>
+                          <div class="col-md-6">
+                            <input type="text" class="form-control" value="<%= userinfo.username %>" disabled>
+                          </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                          <label for="fullname" class="col-md-2">
+                            Họ Tên:
+                          </label>
+                          <div class="col-md-6">
+                            <input type="text" class="form-control" value="<%= userinfo.hoten %>" disabled>
+                          </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                          <label for="phonenumber" class="col-md-2">
+                            Số điện thoại:
+                          </label>
+                          <div class="col-md-6">
+                            <input type="text" class="form-control" value="<%= userinfo.sdt %>" disabled>
+                          </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                          <label for="emailaddress" class="col-md-2">
+                            Địa chỉ email:
+                          </label>
+                          <div class="col-md-6">
+                            <input type="email" class="form-control" value="<%= userinfo.email %>" disabled>
+                          </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                          <label for="address" class="col-md-2">
+                            Địa chỉ:
+                          </label>
+                          <div class="col-md-6">
+                            <input type="text" class="form-control" value="<%= userinfo.diachi %>" disabled>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div id="change_info" style="display:none;">
+                        <div class="form-group col-md-12">
+                          <label for="username" class="col-md-2">
+                            Tên đăng nhập:
+                          </label>
+                          <div class="col-md-6">
+                            <input type="text" class="form-control" name="username" id="username" value="<%= userinfo.username %>" disabled>
+                          </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                          <label for="fullname" class="col-md-2">
+                            Họ Tên:
+                          </label>
+                          <div class="col-md-6">
+                            <input type="text" class="form-control" name="hoten" id="fullname" value="<%= userinfo.hoten %>" >
+                          </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                          <label for="phonenumber" class="col-md-2">
+                            Số điện thoại:
+                          </label>
+                          <div class="col-md-6">
+                            <input type="text" class="form-control" name="sdt" id="phonenumber" value="<%= userinfo.sdt %>" >
+                          </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                          <label for="emailaddress" class="col-md-2">
+                            Địa chỉ email:
+                          </label>
+                          <div class="col-md-6">
+                            <input type="email" class="form-control" name="email" id="emailaddress" value="<%= userinfo.email %>" >
+                          </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                          <label for="address" class="col-md-2">
+                            Địa chỉ:
+                          </label>
+                          <div class="col-md-6">
+                            <input type="text" class="form-control" name="diachi" id="address" value="<%= userinfo.diachi %>" >
+                          </div>
+                        </div>
+                      </div>
+                   
+                      <div class="row">
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-3">
+                          <button type="button" class="btn btn-info" id="ChangeInfo">
+                            Thay đổi
+                          </button>
+                          <button type="submit" formaction="/cancelchangeinfo" class="btn btn-info" id="CancelChange" style="display:none;">
+                            Hủy bỏ
+                          </button>
+                          <button type="submit" class="btn btn-info" id="SaveChange" style="display:none;">
+                            Lưu thay đổi
+                          </button>
+                        </div>
+
+                      </div>
+                    </form>
+                  </div>
+                  <!--
+                  <div>Thông tin tài khoản</div>
+                  <div class="col-sm-2">Email: </div>
+                  <div class="col-sm-10">SherlockHolmes@gmail.com</div>
+                  <div class="col-sm-2">Họ Tên: </div>
+                  <div class="col-sm-10">Sherlock Holmes</div>
+                  <div class="form-group">
+                    <label for="sex" class="col-sm-2">
+                      Sex:
+                    </label>
+                    <div class="col-sm-10">
+                      <label class="radio col-sm-3">
+                        <input type="radio" name="sex" id="sex" value="male" >
+                        Nạm
+                      </label>
+                      <label class="radio col-sm-3">
+                        <input type="radio" name="sex" id="sex" value="female"checked>
+                        Nữ
+                      </label>
+                    </div>                  
+                  <div class="col-sm-3">Số điện thoại: </div>
+                  <div class="col-sm-9"> 098.999.9999 </div>
+                  <div class="col-sm-3">Địa chỉ: </div>
+                  <div class="col-sm-9">221B Baker Street London</div>     
+                -->
+                </div>
+
+              </div>
+            </div>
+          </section>
+      </div>
+      <div class="clearfix">
+      </div>
+
+	<% include ./partials/footer.ejs %>
+    </div>
+    </div>
+    
+
+    <% include ./partials/script.ejs %>
+    <script type="text/javascript" src="javascripts/accountinformation.js" ></script>
+  </body>
+</html>
